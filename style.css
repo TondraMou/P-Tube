@@ -1,0 +1,11 @@
+.active {
+    background-color: red;
+    color: #fff;
+  }
+  .category-btn {
+    margin: 5px;
+    padding: 10px;
+    background-color: #eee;
+    border: none;
+    cursor: pointer;
+  }
