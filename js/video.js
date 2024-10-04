@@ -20,16 +20,23 @@ const displayVideos = (videos) =>{
         const card = document.createElement("div");
         card.classList = "card card-compact";
         card.innerHTML = `
-        <figure>
+        <figure class="h-[200px]">
     <img
       src=${video.thumbnail}
+      class="h-full w-full object-cover"
       alt="Shoes" />
   </figure>
-  <div class="card-body">
-    <h2 class="card-title">Shoes!</h2>
-    <p>If a dog chews shoes whose shoes does he choose?</p>
-    <div class="card-actions justify-end">
-      <button class="btn btn-primary">Buy Now</button>
+  <div class="px-0 py-2 flex gap-2">
+    <div>
+    <img src=${video.authors[0].profile_picture} class="w-9 h-9 rounded-full object-cover"/>
+    </div>
+    <div>
+    <h2 class="font-bold">${video.title}</h2>
+    <div class="flex items-center gap-3">
+    <p>${video.authors[0].profile_name}</p>
+    ${video.authors[0].verified === true ? `<img src="asset/icons8-verify-40.png" class="w-4 h-4"/>` : ""}
+    </div>
+    <p>${video.others.views} Views</p>
     </div>
   </div>
         `;
