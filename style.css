@@ -1,6 +1,10 @@
 .active {
     background-color: red;
     color: #fff;
+    margin: 5px;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
   }
   .category-btn {
     margin: 5px;

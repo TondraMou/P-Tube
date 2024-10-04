@@ -8,9 +8,10 @@ function getTimeString(time) {
   }
   
   const removeActiveClass = () => {
-    const buttons = document.getElementsByClassName("category-btn");
+    const buttons = document.getElementsByClassName("abc");
     for (let btn of buttons) {
       btn.classList.remove("active");
+      btn.classList.add("category-btn")
     }
   };
   
@@ -46,6 +47,7 @@ function getTimeString(time) {
         removeActiveClass();
   
         const activeBtn = document.getElementById(`btn-${id}`);
+        activeBtn.classList.remove("category-btn")
         activeBtn.classList.add("active");
   
         displayVideos(data.category);
@@ -58,6 +60,7 @@ function getTimeString(time) {
     removeActiveClass();
     const allVideosBtn = document.getElementById("btn-all");
     allVideosBtn.classList.add("active");
+    allVideosBtn.classList.remove("category-btn")
     loadVideos();
   };
   
@@ -140,7 +143,7 @@ function getTimeString(time) {
     // Add "All Videos" button
     const allVideosButton = document.createElement("div");
     allVideosButton.innerHTML = `
-      <button id="btn-all" onclick="loadAllVideos()" class="btn category-btn active">
+      <button id="btn-all" onclick="loadAllVideos()" class="abc active">
        All Videos
       </button>
     `;
@@ -149,7 +152,7 @@ function getTimeString(time) {
     categories.forEach((item) => {
       const buttonContainer = document.createElement("div");
       buttonContainer.innerHTML = `
-        <button id="btn-${item.category_id}" onclick="loadCategoryVideos(${item.category_id})" class="btn category-btn">
+        <button id="btn-${item.category_id}" onclick="loadCategoryVideos(${item.category_id})" class="category-btn abc">
          ${item.category}
         </button>
       `;
@@ -165,4 +168,3 @@ function getTimeString(time) {
   // Initial load of categories and all videos
   loadCategories();
   loadVideos();
-  
